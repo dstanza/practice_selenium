@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/features/.idea/practice_selenium.iml" filepath="$PROJECT_DIR$/features/.idea/practice_selenium.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../python_behave_template-master/.idea/practiceselenium.iml" filepath="$PROJECT_DIR$/../python_behave_template-master/.idea/practiceselenium.iml" />
+    </modules>
+  </component>
+</project>
