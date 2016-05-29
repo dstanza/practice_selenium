@@ -1,5 +1,14 @@
 from behave import *
-from pdb import set_trace
+from selenium import webdriver
+from selenium.webdriver.support import ui
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import *
+from selenium.common.exceptions import WebDriverException
+import unittest
+import time
+import traceback
 
 use_step_matcher("re")
 
@@ -13,10 +22,10 @@ def step_impl(context):
 @then("I complete the form")
 def step_impl(context):
 
-    name = context.browser.find_element_by_name("name")
-    email = context.browser.find_element_by_name("email")
-    subject = context.browser.find_element_by_name("subject")
-    subject = context.browser.find_element_by_name("message")
+    name = context.browser.find_element_by_name("name").send_keys("Dwindy Stanza")
+    email = context.browser.find_element_by_name("email").send_keys("dwindy.stanza@live.com")
+    subject = context.browser.find_element_by_name("subject").send_keys("Dummy subject")
+    message = context.browser.find_element_by_name("message").send_keys("Dummy message")
 
 
 @then("I leave name blank")
@@ -63,5 +72,9 @@ def step_impl(context):
 def step_impl(context):
     button = context.browser.find_element_by_xpath('//*[@id="form_78ea690540a24bd8b9dcfbf99e999fea"]/div[1]/div[5]/input')
     button.click()
-    set_trace()
+    try:
+        WebDriverWait(context.browser, 10).until(EC.text_to_be_present_in_element_value((By.ID, 'msg_78ea690540a24bd8b9dcfbf99e999fea'), 'Thank you sending us your information. We will get back to you with your Chai :)'))
+    except(Exception):
+        traceback.print_exc()
+
 #    context.browser.find_element_by_xpath('//*[@id="form_78ea690540a24bd8b9dcfbf99e999fea"]/div[1]/div[1]/input and @class="form-value form-value-invalid"')
