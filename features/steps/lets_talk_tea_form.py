@@ -30,11 +30,10 @@ def step_impl(context):
 
 @then("I leave name blank")
 def step_impl(context):
-    """
-    :type context: behave.runner.Context
-    """
-    pass
-
+    name = context.browser.find_element_by_name("name").send_keys("")
+    email = context.browser.find_element_by_name("email").send_keys("")
+    subject = context.browser.find_element_by_name("subject").send_keys("")
+    message = context.browser.find_element_by_name("message").send_keys("")
 
 @then("I enter 256 character on name")
 def step_impl(context):
